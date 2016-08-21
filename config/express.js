@@ -25,7 +25,6 @@ module.exports = function(){
 
   //require routes
   require('../app/routes/location.routes')(app);
-    require('../app/routes/geo.routes')(app);
   // require('../app/routes/user.routes')(app);
   // require('../app/routes/static.routes')(app);
 

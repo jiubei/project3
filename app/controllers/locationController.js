@@ -1,6 +1,16 @@
 var Location = require('mongoose').model('Location');
 
 module.exports = {
+
+//from geoController
+dingding: function(req, res, next) {
+Location.geoNear(req.body.latLong, { spherical : true, maxDistance : req.body.maxD * 2.74268 / 111.12, limit: 10 }, function (err, results, stats) {
+    console.log(stats);
+res.json(results);
+// res.json(stats);
+});
+},
+
   //get all locations
   index: function(req, res, next) {
     Location.find({}, function(err, locations){

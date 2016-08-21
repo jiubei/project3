@@ -9,4 +9,8 @@ module.exports = function(app) {
   //set routes
   app.route('/locations/search')
     .get(locationController.search);
+
+  //
+  app.route('/locations/geonear')
+    .post(locationController.dingding);
 };

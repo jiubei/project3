@@ -21,20 +21,22 @@ var locationSchema = new mongoose.Schema({
   location: {
     type: String
   },
-  latLong: {
-    type: {
-      type: String,
-      default: 'Point'
-    },
-    coordinates: [ Number ]
-  }
+  pos : [Number]
 });
 
-locationSchema.query = {
-  circleDistAway: function(lat, long, dist){
 
-  }
-};
+locationSchema.index({ "pos" : "2dsphere"});
+
+// locationSchema.query = {
+//   circleDistAway: function( pos, dist){
+//   return this.find()
+//   }
+// };
+
+
+
+
+
 
 var Location = mongoose.model('Location', locationSchema);
 
